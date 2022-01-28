@@ -7,8 +7,8 @@
 
 
 <p>
-    @Html.ActionLink("Yeni Ekle", "Create")
-</p>
+    @Html.ActionLink("Create", "Create")
+</p  >
 <table class="table">
     <tr>
         <th>
@@ -39,7 +39,7 @@
             @Html.DisplayFor(modelItem => item.Keywords)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.Raw(item.Description)
         </td>
         <td>
            <img src="@item.LogoUrl" width="80" height="70"/>

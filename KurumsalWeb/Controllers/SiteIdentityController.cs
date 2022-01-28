@@ -30,6 +30,7 @@ namespace KurumsalWeb.Controllers
         // POST: SiteIdentity/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(int id, SiteIdentity siteIdentity, HttpPostedFileBase LogoUrl)
         {
             if (ModelState.IsValid)
