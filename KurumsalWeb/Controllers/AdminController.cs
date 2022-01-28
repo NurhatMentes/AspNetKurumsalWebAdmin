@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace KurumsalWeb.Controllers
 {
     public class AdminController : Controller
