@@ -1,0 +1,36 @@
+﻿@model KurumsalWeb.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title" >Kategori Detay</h5>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CategoryName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.Description)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

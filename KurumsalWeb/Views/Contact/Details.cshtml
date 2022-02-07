@@ -5,71 +5,71 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Contact</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Adress)
-        </dt>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">İletişim - Detay</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Adress)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Adress)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Adress)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tel)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Tel)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tel)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Tel)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fax)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fax)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fax)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Fax)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Whatsapp)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Whatsapp)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Whatsapp)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Whatsapp)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Facebook)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Facebook)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Facebook)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Facebook)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Twitter)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Twitter)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Twitter)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Twitter)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Instagram)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Instagram)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Instagram)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Instagram)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Geri Dön", "Index")
 </p>

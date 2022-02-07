@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -15,8 +16,11 @@ namespace KurumsalWeb.Models
         [Key]
         public int CategoryId { get; set; }
 
+        [DisplayName("Kategori Başlık")]
         [Required, StringLength(50, ErrorMessage = "En fazla 50 karekter olabilir.")]
         public string CategoryName { get; set; }
+
+        [DisplayName("Açıklama")]
         public string Description { get; set; }
 
         public ICollection<Blog> Blogs { get; set; }

@@ -10,27 +10,31 @@
 </script>
 
 
-<h2>Hizmet Güncelle</h2>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Hizmet Güncelle</h5>
 
-<form class="row g-3" method="post" action="/Service/Edit/@Model.ServiceId" enctype="multipart/form-data">
-    <div class="col-12">
-        <label for="inputNanme4" class="form-label">Başlık*</label>
-        <input type="text" class="form-control" name="Title" id="Title" required="" value="@Model.Title">
+        <form class="row g-3" method="post" action="/Service/Edit/@Model.ServiceId" enctype="multipart/form-data">
+            <div class="col-12">
+                <label for="inputNanme4" class="form-label">Başlık*</label>
+                <input type="text" class="form-control" name="Title" id="Title" required="" value="@Model.Title">
+            </div>
+            <div class="col-12">
+                <label for="inputEmail4" class="form-label">Açıklama*</label>
+                <textarea name="Description" id="Description" class="ckeditor" required="">@Model.Description</textarea>
+            </div>
+            <div class="col-12">
+                <label for="inputPassword4" class="form-label">Önceki Resim:</label>
+                <img src="@Model.ImgUrl" width="250" height="150" />
+            </div>
+            <div class="col-12">
+                <label for="inputPassword4" class="form-label">Resim</label>
+                <input type="file" class="form-control" id="ImgUrl" name="ImgUrl" accept=".jpg,.png,.jpeg">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Güncelle</button>
+                <button type="reset" class="btn btn-secondary"><a href="/Service/Index" style="color: white">İptal</a></button>
+            </div>
+        </form><!-- Vertical Form -->
     </div>
-    <div class="col-12">
-        <label for="inputEmail4" class="form-label">Açıklama*</label>
-        <textarea name="Description" id="Description" class="ckeditor" required="">@Model.Description</textarea>
-    </div>
-    <div class="col-12">
-        <label for="inputPassword4" class="form-label">Önceki Resim:</label>
-        <img src="@Model.ImgUrl" width="250" height="150"/>
-    </div>
-    <div class="col-12">
-        <label for="inputPassword4" class="form-label">Resim</label>
-        <input type="file" class="form-control" id="ImgUrl" name="ImgUrl" accept=".jpg,.png,.jpeg">
-    </div>
-    <div class="text-center">
-        <button type="submit" class="btn btn-primary">Güncelle</button>
-        <button type="reset" class="btn btn-secondary"><a href="/Service/Index">İptal</a></button>
-    </div>
-</form><!-- Vertical Form -->
+</div>

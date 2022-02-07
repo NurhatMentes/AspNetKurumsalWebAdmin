@@ -10,7 +10,7 @@ namespace KurumsalWeb.Models.Model
     public class Blog
     {
         public int BlogId { get; set; }
-        public string title { get; set; }
+        public string Title { get; set; }
         public string Context { get; set; }
         public string ImgUrl { get; set; }
 

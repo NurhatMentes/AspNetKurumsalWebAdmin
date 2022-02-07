@@ -103,9 +103,6 @@ namespace KurumsalWeb.Controllers
 
         public ActionResult Delete(int id)
         {
-            {
-                
-            }
             if (id == null)
             {
                 return HttpNotFound();

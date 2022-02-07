@@ -46,7 +46,6 @@
 </head>
 <body>
 
-    <section id="container">
         <!-- ======= Header ======= -->
         <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -293,29 +292,47 @@
                         <span>Site Kimlik</span>
                     </a>
                 </li><!-- End SiteIdentity Nav -->
-            
-            <li class="nav-item">
-                <a class="nav-link " href="/Contact/Index">
-                    <i class="bi bi-grid"></i>
-                    <span>İletişim</span>
-                </a>
-            </li><!-- End SiteIdentity Nav -->
-            
-            <li class="nav-item">
-                <a class="nav-link " href="/AboutUs/Index">
-                    <i class="bi bi-grid"></i>
-                    <span>Hakkımızda</span>
-                </a>
-            </li><!-- End SiteIdentity Nav -->
-                
-            <li class="nav-item">
-                <a class="nav-link " href="/Service/Index">
-                    <i class="bi bi-grid"></i>
-                    <span>Hizmetler</span>
-                </a>
-            </li><!-- End SiteIdentity Nav -->
 
-            <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link " href="/Contact/Index">
+                        <i class="bi bi-grid"></i>
+                        <span>İletişim</span>
+                    </a>
+                </li><!-- End Contact Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link " href="/AboutUs/Index">
+                        <i class="bi bi-grid"></i>
+                        <span>Hakkımızda</span>
+                    </a>
+                </li><!-- End AboutUs Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link " href="/Service/Index">
+                        <i class="bi bi-grid"></i>
+                        <span>Hizmetler</span>
+                    </a>
+                </li><!-- End Service Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-journal-text"></i><span>Blog Kayıtları</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="/Category/Index/">
+                                <i class="bi bi-circle"></i><span>Kategoriler</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Blog/Index/">
+                                <i class="bi bi-circle"></i><span>Blog Kayıtları</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- End Blog - Category -->
+
+                <li class="nav-item">
                     <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                         <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
                     </a>
@@ -542,10 +559,10 @@
 
 
         <main id="main" style="margin-top: 0; padding: 0">
-            <section >
+            <section>
                 @RenderBody()
             </section>
-               
+
         </main>
 
 
@@ -565,7 +582,7 @@
 
 
 
-    </section>
+   
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
