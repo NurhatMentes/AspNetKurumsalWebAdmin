@@ -1,0 +1,56 @@
+﻿@model KurumsalWeb.Models.Model.Slider
+
+@{
+    ViewBag.Title = "Slider Oluştur";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Slider Resim Ekle</h2>
+
+@using (Html.BeginForm("Create", "Sliders", FormMethod.Post, new {enctype = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card">
+        <div class="card-body">
+            <div class="form-horizontal">
+                <h2 class="card-title">Slider</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 1%">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 1%">
+                    @Html.LabelFor(model => model.ImgUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="ImgUrl" class="form-control" required="" placeholder="Resim seçiniz" />
+                        @Html.ValidationMessageFor(model => model.ImgUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10" style="margin-top: 1%">
+                        <input type="submit" value="Ekle" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Geri Dön", "Index")
+</div>
+

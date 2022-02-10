@@ -2,12 +2,12 @@
 @model KurumsalWeb.Models.Model.Blog
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Blog Düzenle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Blog Düzenle</h5>
+        <h5 class="card-title">Blog</h5>
 
         @*<form class="row g-3" method="post" enctype="multipart/form-data" action="/Blog/Create/">*@
         @using (Html.BeginForm("Edit", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))

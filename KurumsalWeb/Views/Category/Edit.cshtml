@@ -1,7 +1,7 @@
 ﻿@model KurumsalWeb.Models.Category
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Kategori Düzenle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -16,7 +16,7 @@
 
     <div class="card">
         <div class="card-body bg-dark" style="padding: 5%">
-            <h4 style="color: white">Kategori Düzenle</h4>
+            <h4 style="color: white">Kategori</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.CategoryId)

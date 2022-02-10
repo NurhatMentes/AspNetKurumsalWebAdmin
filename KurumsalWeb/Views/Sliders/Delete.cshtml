@@ -1,22 +1,23 @@
-﻿@model KurumsalWeb.Models.Category
+﻿@model KurumsalWeb.Models.Model.Slider
 
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+
 <h3>Silmek istediğinize emin misiniz?</h3>
 <div class="card alert-danger">
     <div class="card-body">
-        <h4 class="card-title">Kategori</h4>
+        <h4 class="card-title">Slider Sil</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.CategoryName)
+                @Html.DisplayNameFor(model => model.Title)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.CategoryName)
+                @Html.DisplayFor(model => model.Title)
             </dd>
 
             <dt>
@@ -24,7 +25,15 @@
             </dt>
 
             <dd>
-                @Html.Raw(Model.Description)
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImgUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImgUrl)
             </dd>
 
         </dl>
