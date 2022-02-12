@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,11 +15,15 @@ namespace KurumsalWeb.Models.Model
         public int ContactId { get; set; }
 
         [Required, StringLength(300, ErrorMessage = "En fazla 300 karekter olabilir.")]
+        [DisplayName("Adres")]
         public string Adress { get; set; }
 
         [Required, StringLength(15, ErrorMessage = "En fazla 15 karekter olabilir.")]
+        [DisplayName("Telefon")]
         public string Tel { get; set; }
-        public string Fax { get; set; }
+
+        [DisplayName("E-Posta")]
+        public string ContactEmail { get; set; }
         public string Whatsapp { get; set; }
         public string Facebook { get; set; }
         public string Twitter { get; set; }
