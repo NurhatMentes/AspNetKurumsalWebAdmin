@@ -1327,6 +1327,10 @@
     <Content Include="Views\Sliders\Index.cshtml" />
     <Content Include="Views\Home\SliderPartial.cshtml" />
     <Content Include="Views\Home\ServicePartial.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\FooterPartial.cshtml" />
+    <Content Include="Views\Home\Service.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
