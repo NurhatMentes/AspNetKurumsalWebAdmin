@@ -66,6 +66,29 @@ namespace KurumsalWeb.Controllers
             return View();
         }
 
+        public ActionResult Blog()
+        {
+            //Include("Category") diyerek aynı şekilde kategoriyide çağırmış olduk
+            return View(db.Blogs.Include("Category").ToList().OrderByDescending(x => x.BlogId));
+        }
+
+        public ActionResult BlogDetail(int id)
+        {
+            var blog = db.Blogs.Include("Category").Where(x => x.BlogId == id).SingleOrDefault();
+
+            return View(blog);
+        }
+
+        public ActionResult BlogCategoryPartial()
+        {
+            return PartialView(db.Categories.Include("Blogs").ToList().OrderBy(x => x.CategoryName));
+        }
+
+        public ActionResult BlogSavePartial()
+        {
+            return PartialView(db.Blogs.ToList().OrderBy(x => x.BlogId));
+        }
+
         public ActionResult FooterPartial()
         {
             ViewBag.Contact = db.Contacts.SingleOrDefault();
