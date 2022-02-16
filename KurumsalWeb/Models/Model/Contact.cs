@@ -23,7 +23,7 @@ namespace KurumsalWeb.Models.Model
         public string Tel { get; set; }
 
         [DisplayName("E-Posta")]
-        public string ContactEmail { get; set; }
+        public string Email { get; set; }
         public string Whatsapp { get; set; }
         public string Facebook { get; set; }
         public string Twitter { get; set; }

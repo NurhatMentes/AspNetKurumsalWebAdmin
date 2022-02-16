@@ -94,7 +94,7 @@ namespace KurumsalWeb.Controllers
                     blogId.ImgUrl = "/Uploads/Blog/" + imgName;
                 }
 
-                blogId.Context = blog.Context;
+                blogId.Content = blog.Content;
                 blogId.Title = blog.Title;
                 blogId.CategoryId = blog.CategoryId;
 

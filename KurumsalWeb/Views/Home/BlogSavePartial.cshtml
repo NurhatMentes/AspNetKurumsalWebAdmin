@@ -9,7 +9,7 @@
         <img src="@item.ImgUrl" class="pull-left" alt="@item.Title" />
         <h6><a href="/Home/BlogDetail/@item.BlogId">@item.Title</a></h6>
         <p>
-            @Html.Raw(item.Context.Substring(0,150));
+           @Html.Raw(item.Content.Substring(0,150))
         </p>
     </li>
 

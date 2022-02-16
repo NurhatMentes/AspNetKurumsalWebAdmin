@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using KurumsalWeb.Models.DataContext;
+using PagedList;
 
 namespace KurumsalWeb.Controllers
 {
@@ -66,10 +67,11 @@ namespace KurumsalWeb.Controllers
             return View();
         }
 
-        public ActionResult Blog()
+        public ActionResult Blog(int pageNumber = 1)
         {
             //Include("Category") diyerek aynı şekilde kategoriyide çağırmış olduk
-            return View(db.Blogs.Include("Category").ToList().OrderByDescending(x => x.BlogId));
+            return View(db.Blogs.Include("Category").OrderByDescending(x => x.BlogId).ToPagedList(pageNumber, 5));
+            
         }
 
         public ActionResult BlogDetail(int id)

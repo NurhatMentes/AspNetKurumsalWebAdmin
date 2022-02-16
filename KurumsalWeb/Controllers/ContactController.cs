@@ -47,7 +47,7 @@ namespace KurumsalWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactId,Adress,Tel,ContactEmail,Whatsapp,Facebook,Twitter,Instagram")] Contact contact)
+        public ActionResult Create([Bind(Include = "ContactId,Adress,Tel,Email,Whatsapp,Facebook,Twitter,Instagram")] Contact contact)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace KurumsalWeb.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactId,Adress,Tel,ContactEmail,Whatsapp,Facebook,Twitter,Instagram")] Contact contact)
+        public ActionResult Edit([Bind(Include = "ContactId,Adress,Tel,Email,Whatsapp,Facebook,Twitter,Instagram")] Contact contact)
         {
             if (ModelState.IsValid)
             {
