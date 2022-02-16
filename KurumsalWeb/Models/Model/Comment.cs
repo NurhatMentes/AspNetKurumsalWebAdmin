@@ -22,8 +22,11 @@ namespace KurumsalWeb.Models.Model
         public string Email { get; set; }
 
         [Required]
-        [DisplayName("Yorumunuz")]
+        [DisplayName("Yorum")]
         public string CommentContent { get; set; }
+
+        [DisplayName("Onay")]
+        public bool Confirmation { get; set; }
 
         public int? BlogId { get; set; }
         public Blog Blog { get; set; }

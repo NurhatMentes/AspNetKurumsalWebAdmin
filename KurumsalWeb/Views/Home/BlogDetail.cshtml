@@ -32,7 +32,7 @@
                                 <li><i class="icon-folder-open"></i><a href="#"> @Model.Category.CategoryName</a></li>
                             </ul>
                         </div>
-                        
+
                         <br>
                         <img src="@Model.ImgUrl" alt="@Model.Title" />
                     </div>
@@ -40,10 +40,24 @@
                     <p>
                         @Html.Raw(Model.Content)
                     </p>
-                    <div class="bottom-article">
-
-                    </div>
                 </article>
+
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3>Yorum Yap</h3>
+                        <form>
+                            <input type="text" id="FirstLastName" placeholder="Adınız Soyadınız" required="" class="form-control" />
+                            <br />
+                            <input type="text" id="Email" placeholder="E Posta" required="" class="form-control"/>
+                            <br />
+                            <textarea typeof="text" id="CommentContent" required="" class="form-control"></textarea>
+                            <br />
+                            <input type="submit" class="btn btn-success" id="submit" value="Yorum Yap" />
+                        </form>
+                    </div>
+                </div>
+
 
 
             </div>
@@ -74,5 +88,23 @@
     </div>
 </section>
 
-
-
+<script src="~/Scripts/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        $("#submit").click(function () {
+            var firstLastName = $("#FirstLastName").val();
+            var email = $("#Email").val();
+            var content = $("#CommentContent").val();
+            $.ajax({
+                url: '/Home/Comment/',
+                data: { firstLastName: firstLastName, email: email, content: content, blogId:@Model.BlogId },
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    alert(firstLastName+" - Yorumunuz eklendi, kontrol edildikten sonra yayınlanacaktır.");
+                }
+            });
+        });
+    })
+</script>

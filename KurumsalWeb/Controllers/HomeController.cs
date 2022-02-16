@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using KurumsalWeb.Models.DataContext;
+using KurumsalWeb.Models.Model;
 using PagedList;
 
 namespace KurumsalWeb.Controllers
@@ -71,7 +72,26 @@ namespace KurumsalWeb.Controllers
         {
             //Include("Category") diyerek aynı şekilde kategoriyide çağırmış olduk
             return View(db.Blogs.Include("Category").OrderByDescending(x => x.BlogId).ToPagedList(pageNumber, 5));
-            
+        }
+
+        public JsonResult Comment(string firstLastName, string email, string content, int blogId)
+        {
+            if (content==null)
+            {
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+
+            db.Comments.Add(new Comment
+            {
+                FirstLastName = firstLastName, 
+                CommentContent = content, 
+                Email = email, 
+                BlogId = blogId, 
+                Confirmation = false
+            });
+            db.SaveChanges();
+
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult BlogDetail(int id)
