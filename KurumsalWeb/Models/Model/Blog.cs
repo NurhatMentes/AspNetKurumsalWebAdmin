@@ -26,6 +26,6 @@ namespace KurumsalWeb.Models.Model
         public Category Category { get; set; }
 
 
-        private ICollection<Comment> Comments { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }

@@ -68,10 +68,16 @@ namespace KurumsalWeb.Controllers
             return View();
         }
 
-        public ActionResult Blog(int pageNumber = 1)
+        public ActionResult Blog( int pageNumber = 1)
         {
             //Include("Category") diyerek aynı şekilde kategoriyide çağırmış olduk
             return View(db.Blogs.Include("Category").OrderByDescending(x => x.BlogId).ToPagedList(pageNumber, 5));
+        }
+
+        public ActionResult CategoryBlog(int id, int pageNumber=1)
+        {
+            var blog = db.Blogs.Include("Category").OrderByDescending(x => x.BlogId).Where(x => x.Category.CategoryId == id).ToPagedList(pageNumber, 5);
+            return View(blog);
         }
 
         public JsonResult Comment(string firstLastName, string email, string content, int blogId)
@@ -96,7 +102,7 @@ namespace KurumsalWeb.Controllers
 
         public ActionResult BlogDetail(int id)
         {
-            var blog = db.Blogs.Include("Category").Where(x => x.BlogId == id).SingleOrDefault();
+            var blog = db.Blogs.Include("Category").Include("Comments").Where(x => x.BlogId == id).SingleOrDefault();
 
             return View(blog);
         }
