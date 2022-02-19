@@ -1,6 +1,7 @@
 ﻿
 @using PagedList;
 @using PagedList.Mvc;
+@using KurumsalWeb.Helper;
 
 @model IPagedList<KurumsalWeb.Models.Model.Blog>
 
@@ -31,7 +32,7 @@
                     <article>
                         <div class="post-image">
                             <div class="post-heading">
-                                <h3><a href="/Home/BlogDetail/@item.BlogId">@item.Title</a></h3>
+                                <h3><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Title).ToLower()-@item.BlogId">@item.Title</a></h3>
                             </div>
                             <img src="@item.ImgUrl" alt="@item.Title" />
                         </div>
@@ -50,7 +51,7 @@
 
                 <div id="pagination">
                     <span class="inactive">
-                        @Html.PagedListPager(Model, pageNumber => Url.Action("Blog", new
+                        @Html.PagedListPager(Model, pageNumber => Url.Action("BlogPost", new
                         {
                             pageNumber
                         }), PagedListRenderOptions.Classic)

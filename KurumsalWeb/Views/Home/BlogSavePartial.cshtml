@@ -1,15 +1,18 @@
 ﻿
+@using KurumsalWeb.Helper;
+
+
 @model IEnumerable<KurumsalWeb.Models.Model.Blog>
 
 
 @foreach (var item in Model)
 {
-    
+
     <li>
         <img src="@item.ImgUrl" class="pull-left" alt="@item.Title" />
-        <h6><a href="/Home/BlogDetail/@item.BlogId">@item.Title</a></h6>
+        <h6><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Title).ToLower()-@item.BlogId">@item.Title</a></h6>
         <p>
-           @Html.Raw(item.Content.Substring(0,150))
+            @Html.Raw(item.Content.Substring(0, 150))
         </p>
     </li>
 

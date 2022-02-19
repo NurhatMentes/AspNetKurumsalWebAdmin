@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - StarWork-It TEST</title>
+    <title>@ViewBag.Title - @ViewBag.Identity.Title</title>
+    <meta name="description" content="@Html.Raw(ViewBag.Identity.Description)" />
+    <meta name="keywords" content="@ViewBag.Identity.Keywords" />
 
     <!-- css -->
     <link href="/Content/SiteLayout/css/bootstrap.min.css" rel="stylesheet" />
@@ -37,7 +39,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/Home"><span>M</span>oderna</a>
+                        <a class="navbar-brand" href="/Home"><img src="@ViewBag.Identity.LogoUrl" height="85" width="105"/></a>
                     </div>
                     <div class="navbar-collapse collapse ">
                         <ul class="nav navbar-nav">
@@ -53,7 +55,7 @@
                             </li>*@
                             <li><a href="/Home/AboutUs">Hakkımızda</a></li>
                             <li><a href="/Home/Service">Hizmetlerimiz</a></li>
-                            <li><a href="/Home/Blog">Blog</a></li>
+                            <li><a href="/Home/BlogPost">Blog</a></li>
                             <li><a href="/Home/Contact">İletişim</a></li>
                         </ul>
                     </div>

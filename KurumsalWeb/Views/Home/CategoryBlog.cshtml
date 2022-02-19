@@ -1,5 +1,6 @@
 ﻿@using PagedList.Mvc
 @using PagedList
+@using KurumsalWeb.Helper;
 
 @model IPagedList<KurumsalWeb.Models.Model.Blog>
 
@@ -31,7 +32,7 @@
                     <article>
                         <div class="post-image">
                             <div class="post-heading">
-                                <h3><a href="/Home/BlogDetail/@item.BlogId">@item.Title</a></h3>
+                                <h3><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Title).ToLower()-@item.BlogId">@item.Title</a></h3>
                             </div>
                             <img src="@item.ImgUrl" alt="@item.Title" />
                         </div>
@@ -43,14 +44,14 @@
                                 <li><i class="icon-folder-open"></i><a href="#"> @item.Category.CategoryName</a></li>
                                 @*<li><i class="icon-comments"></i><a href="#">4 Comments</a></li>*@
                             </ul>
-                            <a href="/Home/BlogDetail/@item.BlogId" class="pull-right">Okumaya devam edebilirsiniz<i class="icon-angle-right"></i></a>
+                            <a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Title).ToLower()-@item.BlogId" class="pull-right">Okumaya devam edebilirsiniz<i class="icon-angle-right"></i></a>
                         </div>
                     </article>
                 }
 
                 <div id="pagination">
                     <span class="inactive">
-                        @Html.PagedListPager(Model, pageNumber => Url.Action("Blog", new
+                        @Html.PagedListPager(Model, pageNumber => Url.Action("BlogPost", new
                         {
                             pageNumber
                         }), PagedListRenderOptions.Classic)

@@ -13,9 +13,14 @@ namespace KurumsalWeb.Controllers
     public class HomeController : Controller
     {
         private KurumsalDBContext db = new KurumsalDBContext();
+
         // GET: Home
+        [Route("")]
+        [Route("Home")]
         public ActionResult Index()
         {
+            ViewBag.Identity = db.SiteIdentities.SingleOrDefault();
+
             //Service ana sayfada da lazım olduğundan burada var
             ViewBag.Service = db.Services.ToList().OrderByDescending(x => x.ServiceId);
 
@@ -29,21 +34,32 @@ namespace KurumsalWeb.Controllers
 
         public ActionResult ServicePartial()
         {
+            ViewBag.Identity = db.SiteIdentities.SingleOrDefault();
+
             return View(db.Services.ToList().OrderByDescending(x => x.ServiceId));
         }
 
+        [Route("Home/AboutUs")]
         public ActionResult AboutUs()
         {
+            ViewBag.Identity = db.SiteIdentities.SingleOrDefault();
+
             return View(db.AboutUs.SingleOrDefault());
         }
 
+       // [Route("Home/Service")]
         public ActionResult Service()
         {
+            ViewBag.Identity = db.SiteIdentities.SingleOrDefault();
+
             return View(db.Services.ToList().OrderByDescending(x => x.ServiceId));
         }
 
+        [Route("Home/Contact")]
         public ActionResult Contact()
         {
+            ViewBag.Identity = db.SiteIdentities.SingleOrDefault();
+
             return View(db.Contacts.SingleOrDefault());
         }
 
@@ -68,14 +84,20 @@ namespace KurumsalWeb.Controllers
             return View();
         }
 
+        [Route("Home/BlogPost")]
         public ActionResult Blog( int pageNumber = 1)
         {
+            ViewBag.Identity = db.SiteIdentities.SingleOrDefault();
+
             //Include("Category") diyerek aynı şekilde kategoriyide çağırmış olduk
             return View(db.Blogs.Include("Category").OrderByDescending(x => x.BlogId).ToPagedList(pageNumber, 5));
         }
 
+        [Route("BlogPost/{categoryName}/{id:int}")]
         public ActionResult CategoryBlog(int id, int pageNumber=1)
         {
+            ViewBag.Identity = db.SiteIdentities.SingleOrDefault();
+
             var blog = db.Blogs.Include("Category").OrderByDescending(x => x.BlogId).Where(x => x.Category.CategoryId == id).ToPagedList(pageNumber, 5);
             return View(blog);
         }
@@ -100,8 +122,10 @@ namespace KurumsalWeb.Controllers
             return Json(false, JsonRequestBehavior.AllowGet);
         }
 
+        [Route("BlogPost/{title}-{id:int}")]
         public ActionResult BlogDetail(int id)
         {
+            ViewBag.Identity = db.SiteIdentities.SingleOrDefault();
             var blog = db.Blogs.Include("Category").Include("Comments").Where(x => x.BlogId == id).SingleOrDefault();
 
             return View(blog);
@@ -122,6 +146,7 @@ namespace KurumsalWeb.Controllers
             ViewBag.Contact = db.Contacts.SingleOrDefault();
             ViewBag.Blog = db.Blogs.ToList().OrderByDescending(x => x.BlogId);
             ViewBag.Service = db.Services.ToList().OrderByDescending(x => x.ServiceId);
+            ViewBag.Identity = db.SiteIdentities.SingleOrDefault();
 
             return PartialView();
         }

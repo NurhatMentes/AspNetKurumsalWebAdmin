@@ -16,14 +16,14 @@ namespace KurumsalWeb.Controllers
         // GET: SiteIdentity
         public ActionResult Index()
         {
-            return View(db.siteIdentities.ToList());
+            return View(db.SiteIdentities.ToList());
         }
 
 
         // GET: SiteIdentity/Edit/5
         public ActionResult Edit(int id)
         {
-            var identity = db.siteIdentities.Where(x => x.IdentityId == id).SingleOrDefault();
+            var identity = db.SiteIdentities.Where(x => x.IdentityId == id).SingleOrDefault();
             return View(identity);
         }
 
@@ -35,7 +35,7 @@ namespace KurumsalWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var identity = db.siteIdentities.Where(x => x.IdentityId == id).SingleOrDefault();
+                var identity = db.SiteIdentities.Where(x => x.IdentityId == id).SingleOrDefault();
 
                 if (LogoUrl !=null)//önceden resim varsa sil
                 {

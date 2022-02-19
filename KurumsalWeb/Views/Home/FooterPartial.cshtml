@@ -1,4 +1,7 @@
-﻿<footer>
+﻿
+@using KurumsalWeb.Helper;
+
+<footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -18,7 +21,7 @@
                 <div class="widget">
                     <h5 class="widgetheading">Pages</h5>
                     <ul class="link-list">
-                        <li><a href="/Home/Index">Ana Sayfa</a></li>
+                        <li><a href="/Home/">Ana Sayfa</a></li>
                         <li><a href="/Home/AboutUs/">Hakkımızda</a></li>
                         <li><a href="/Home/Service/">Hizmetlerimiz</a></li>
                         <li><a href="/Home/Blog/">Blog</a></li>
@@ -32,7 +35,7 @@
                     <ul class="link-list">
                         @foreach (var item in ViewBag.Blog)
                         {
-                            <li><a href="/Home/BlogDetail/@item.BlogId">@item.Title</a></li>
+                            <li><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Title).ToLower()-@item.BlogId">@item.Title</a></li>
                         }
                     </ul>
                 </div>
@@ -44,7 +47,6 @@
                         @foreach (var item in ViewBag.Service)
                         {
                             <a href="/Home/Service/@item.ServiceId"><img src="@item.ImgUrl" width="75" height="30" /> </a>
-
                         }
                     </div>
                     <div class="clear">

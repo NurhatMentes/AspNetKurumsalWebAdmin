@@ -13,6 +13,9 @@ namespace KurumsalWeb
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //artık route işlemlerini Controller da actionsların üstünde yapabilceğiz.
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
