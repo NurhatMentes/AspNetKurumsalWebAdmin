@@ -13,12 +13,18 @@ namespace KurumsalWeb.Controllers
     {
         private KurumsalDBContext db = new KurumsalDBContext();
         // GET: Admin
+
+        [Route("yonetimpaneli")]
         public ActionResult Index()
         {
+            ViewBag.CommentConf=db.Comments.Where(x=>x.Confirmation == false).Count();
+            ViewBag.Comment = db.Comments.Where(x => x.Confirmation == false).ToList();
+
             var categoryList = db.Categories.ToList();
             return View(categoryList);
         }
 
+        [Route("yonetimpaneli/giris")]
         public ActionResult Login()
         {
             return View();
@@ -53,6 +59,12 @@ namespace KurumsalWeb.Controllers
             Session.Abandon();
 
             return RedirectToAction("Login", "Admin");
+        }
+
+        public ActionResult CommentPartial()
+        {
+            ViewBag.CommentConf = db.Comments.Where(x => x.Confirmation == false).Count();
+            return View(db.Comments.Where(x => x.Confirmation == false).ToList());
         }
     }
 }

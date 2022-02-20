@@ -44,7 +44,7 @@
                                 <li><i class="icon-folder-open"></i><a href="#"> @item.Category.CategoryName</a></li>
                                 @*<li><i class="icon-comments"></i><a href="#">4 Comments</a></li>*@
                             </ul>
-                            <a href="/Home/BlogDetail/@item.BlogId" class="pull-right">Okumaya devam edebilirsiniz<i class="icon-angle-right"></i></a>
+                            <a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Title).ToLower()-@item.BlogId" class="pull-right">Okumaya devam edebilirsiniz<i class="icon-angle-right"></i></a>
                         </div>
                     </article>
                 }
