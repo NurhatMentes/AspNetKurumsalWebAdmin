@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -15,11 +16,14 @@ namespace KurumsalWeb.Models.Model
         public int AdminId { get; set; }
 
         [Required,StringLength(50,ErrorMessage = "En fazla 50 karekter olabilir.")]
+        [DisplayName("E Posta")]
         public string Email { get; set; }
 
         [Required, StringLength(50, ErrorMessage = "En fazla 50 karekter olabilir.")]
+        [DisplayName("Parola")]
         public string Password { get; set; }
 
+        [DisplayName("Yetki")]
         public string Auth { get; set; }
     }
 }
