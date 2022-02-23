@@ -151,7 +151,10 @@ namespace KurumsalWeb.Controllers
             if (ModelState.IsValid)
             {
                 var adm = db.Admins.Where(x => x.AdminId == id).SingleOrDefault();
-                adm.Password = Crypto.Hash(password, "MD5");
+                if (password != adm.Password)
+                {
+                    adm.Password = Crypto.Hash(password, "MD5");
+                }
                 adm.Email = admin.Email;
                 adm.Auth = admin.Auth;
 
