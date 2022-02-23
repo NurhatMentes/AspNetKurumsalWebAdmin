@@ -68,6 +68,44 @@ namespace KurumsalWeb.Controllers
             return RedirectToAction("Login", "Admin");
         }
 
+        public ActionResult ForgotMyPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotMyPassword(string email = null)
+        {
+            var user=db.Admins.Where(x=>x.Email== email).SingleOrDefault();
+
+            if (user != null)
+            {
+                Random random = new Random();
+                int rndPass = random.Next(10035,999654);
+                int rndPass2 = random.Next(10035, 999654);
+
+                string newPassword = rndPass.ToString() + rndPass2.ToString();
+
+                Admin admin = new Admin();
+                user.Password = Crypto.Hash(newPassword, "MD5");
+                db.SaveChanges();
+
+                WebMail.SmtpServer = "smtp.gmail.com";
+                WebMail.EnableSsl = true;
+                WebMail.UserName = "strworktest@gmail.com";
+                WebMail.Password = "Test123.";
+                WebMail.SmtpPort = 587;
+                WebMail.Send(email, "Admin panele yeni giriş şifreniz","Şirenizi değiştirmeyi unutmayınız!" + "<br/>" + "Şifreniz: " +newPassword);
+                ViewBag.Danger = "Yeni Şifreniz gönderilmiştir.";
+            }
+            else
+            {
+                ViewBag.Danger = "Hata oluştu. Tekrar deneyiniz.";
+            }
+
+            return View();
+        }
+
         public ActionResult CommentPartial()
         {
             ViewBag.CommentConf = db.Comments.Where(x => x.Confirmation == false).Count();
@@ -102,6 +140,8 @@ namespace KurumsalWeb.Controllers
         {
             var admin=db.Admins.Where(x=>x.AdminId==id).SingleOrDefault();
 
+            //ViewBag.Pass= db.Admins.Where(x => x.AdminId == id).Select(x => x.Password).SingleOrDefault();
+           
             return View(admin);
         }
 

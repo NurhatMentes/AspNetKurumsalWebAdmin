@@ -167,10 +167,15 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="/Admin/Admins/">
-                                <i class="bi bi-file-person-fill"></i>
-                                <span>Yöneticiler</span>
-                            </a>
+                            @{
+                                if (Session["Auth"].ToString() == "Admin")
+                                {
+                                    <a class="dropdown-item d-flex align-items-center" href="/Admin/Admins/">
+                                        <i class="bi bi-file-person-fill"></i>
+                                        <span>Yöneticiler</span>
+                                    </a>
+                                }
+                            }
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -212,63 +217,73 @@
                     <span>Kontrol Paneli</span>
                 </a>
             </li><!-- End Dashboard Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="/SiteIdentity/Index">
-                    <i class="bi bi-grid"></i>
-                    <span>Site Kimlik</span>
-                </a>
-            </li><!-- End SiteIdentity Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="/Contact/Index">
-                    <i class="bi bi-grid"></i>
-                    <span>İletişim</span>
-                </a>
-            </li><!-- End Contact Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="/AboutUs/Index">
-                    <i class="bi bi-grid"></i>
-                    <span>Hakkımızda</span>
-                </a>
-            </li><!-- End AboutUs Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="/Service/Index">
-                    <i class="bi bi-grid"></i>
-                    <span>Hizmetler</span>
-                </a>
-            </li><!-- End Service Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="/Sliders/Index">
-                    <i class="bi bi-grid"></i>
-                    <span>Slider</span>
-                </a>
-            </li><!-- End Service Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Blog Kayıtları</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="/Category/Index/">
-                            <i class="bi bi-circle"></i><span>Kategoriler</span>
+            @{
+                if (Session["Auth"].ToString() == "Admin")
+                {
+                    <li class="nav-item">
+                        <a class="nav-link " href="/SiteIdentity/Index">
+                            <i class="bi bi-grid"></i>
+                            <span>Site Kimlik</span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="/Blog/Index/">
-                            <i class="bi bi-circle"></i><span>Blog Kayıtları</span>
-                        </a>
-                        <a href="/Comments/Index/">
-                            <i class="bi bi-circle"></i><span>Blog Yorumları</span>
-                        </a>
-                    </li>
-                </ul>
-            </li><!-- End Blog - Category -->
+                    </li><!-- End SiteIdentity Nav -->
+                }
 
+
+                if (Session["Auth"].ToString() == "Admin" || Session["Auth"].ToString() == "Editör")
+                {
+                    <li class="nav-item">
+                        <a class="nav-link " href="/Contact/Index">
+                            <i class="bi bi-grid"></i>
+                            <span>İletişim</span>
+                        </a>
+                    </li><!-- End Contact Nav -->
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="/AboutUs/Index">
+                            <i class="bi bi-grid"></i>
+                            <span>Hakkımızda</span>
+                        </a>
+                    </li><!-- End AboutUs Nav -->
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="/Service/Index">
+                            <i class="bi bi-grid"></i>
+                            <span>Hizmetler</span>
+                        </a>
+                    </li><!-- End Service Nav -->
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="/Sliders/Index">
+                            <i class="bi bi-grid"></i>
+                            <span>Slider</span>
+                        </a>
+                    </li><!-- End Service Nav -->
+                }
+
+                if (Session["Auth"].ToString() == "Admin" || Session["Auth"].ToString() == "Editör" || Session["Auth"].ToString() == "Yazar")
+                {
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-journal-text"></i><span>Blog Kayıtları</span><i class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                            <li>
+                                <a href="/Category/Index/">
+                                    <i class="bi bi-circle"></i><span>Kategoriler</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Blog/Index/">
+                                    <i class="bi bi-circle"></i><span>Blog Kayıtları</span>
+                                </a>
+                                <a href="/Comments/Index/">
+                                    <i class="bi bi-circle"></i><span>Blog Yorumları</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li><!-- End Blog - Category -->
+                }
+            }
 
         </ul>
 
