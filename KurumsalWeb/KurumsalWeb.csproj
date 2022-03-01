@@ -122,7 +122,6 @@
     <Content Include="Content\AdminLayout\assets\img\news-3.jpg" />
     <Content Include="Content\AdminLayout\assets\img\news-4.jpg" />
     <Content Include="Content\AdminLayout\assets\img\news-5.jpg" />
-    <Content Include="Content\AdminLayout\assets\img\not-found.svg" />
     <Content Include="Content\AdminLayout\assets\img\product-1.jpg" />
     <Content Include="Content\AdminLayout\assets\img\product-2.jpg" />
     <Content Include="Content\AdminLayout\assets\img\product-3.jpg" />
@@ -1272,6 +1271,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminProfilController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
@@ -1358,6 +1358,12 @@
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Admin\ForgotMyPassword.cshtml" />
+    <Content Include="Views\AdminProfil\Create.cshtml" />
+    <Content Include="Views\AdminProfil\Delete.cshtml" />
+    <Content Include="Views\AdminProfil\Details.cshtml" />
+    <Content Include="Views\AdminProfil\Edit.cshtml" />
+    <Content Include="Views\AdminProfil\Index.cshtml" />
+    <Content Include="Views\AdminProfil\PasswordPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

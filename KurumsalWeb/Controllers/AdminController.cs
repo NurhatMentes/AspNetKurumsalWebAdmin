@@ -49,6 +49,9 @@ namespace KurumsalWeb.Controllers
                     Session["adminid"] = login.AdminId;
                     Session["email"] = login.Email;
                     Session["Auth"] = login.Auth;
+                    Session["FullName"] = login.FullName;
+                    Session["Job"] = login.Job;
+                    Session["Phone"] = login.Phone;
 
                     return RedirectToAction("Index", "Admin");
                 }
@@ -100,7 +103,7 @@ namespace KurumsalWeb.Controllers
             }
             else
             {
-                ViewBag.Danger = "Hata oluştu. Tekrar deneyiniz.";
+                ViewBag.Danger = "Kayıtlı kullanıcı bulunamadı!";
             }
 
             return View();
@@ -123,13 +126,14 @@ namespace KurumsalWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Admin admin, string password, string email)
+        public ActionResult Create(Admin admin, string password)
         {
             if (ModelState.IsValid)
             {
                 admin.Password=Crypto.Hash(password,"MD5");
                 db.Admins.Add(admin);
                 db.SaveChanges();
+
                 return RedirectToAction("Admins");
             }
 
@@ -139,9 +143,6 @@ namespace KurumsalWeb.Controllers
         public ActionResult Edit(int id)
         {
             var admin=db.Admins.Where(x=>x.AdminId==id).SingleOrDefault();
-
-            //ViewBag.Pass= db.Admins.Where(x => x.AdminId == id).Select(x => x.Password).SingleOrDefault();
-           
             return View(admin);
         }
 
@@ -155,6 +156,9 @@ namespace KurumsalWeb.Controllers
                 {
                     adm.Password = Crypto.Hash(password, "MD5");
                 }
+                adm.Phone = admin.Phone;
+                adm.Job= admin.Job; 
+                adm.FullName= admin.FullName;
                 adm.Email = admin.Email;
                 adm.Auth = admin.Auth;
 

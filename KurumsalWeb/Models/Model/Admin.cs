@@ -15,6 +15,17 @@ namespace KurumsalWeb.Models.Model
         [Key]
         public int AdminId { get; set; }
 
+        [Required]
+        [DisplayName("İsim")]
+        public string FullName { get; set; }
+
+        [DisplayName("İş")]
+        public string Job { get; set; }
+
+        [Required, StringLength(50, ErrorMessage = "En fazla 10 karekter olabilir.")]
+        [DisplayName("Telefon")]
+        public string Phone { get; set; }
+
         [Required,StringLength(50,ErrorMessage = "En fazla 50 karekter olabilir.")]
         [DisplayName("E Posta")]
         public string Email { get; set; }

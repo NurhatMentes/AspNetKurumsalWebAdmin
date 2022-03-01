@@ -5,8 +5,7 @@
 }
 
 
-@{
-    if (Session["Auth"].ToString() == "Admin" || Session["Auth"].ToString() == "Editör")
+@{ if (Session["Auth"].ToString() == "Admin" || Session["Auth"].ToString() == "Editör" || Session["Auth"] == null)
     {
         <li class="nav-item dropdown">
 
@@ -41,5 +40,5 @@
             </ul><!-- End Notification Dropdown Items -->
 
         </li>
-        }
     }
+}
