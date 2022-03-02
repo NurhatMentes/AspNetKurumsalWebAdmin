@@ -31,7 +31,7 @@ namespace KurumsalWeb.Models.Model
         public string Email { get; set; }
 
         [Required, StringLength(50, ErrorMessage = "En fazla 50 karekter olabilir.")]
-        [DisplayName("Parola")]
+        [DisplayName("Parola"),MinLength(8,ErrorMessage = "Şifreniz en az 8 karakterli olmalıdır")]
         public string Password { get; set; }
 
         [DisplayName("Yetki")]

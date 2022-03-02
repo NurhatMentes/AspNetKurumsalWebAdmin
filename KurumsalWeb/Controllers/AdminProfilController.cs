@@ -120,22 +120,15 @@ namespace KurumsalWeb.Controllers
             {
                 var adm = db.Admins.Where(x => x.AdminId == id).SingleOrDefault();
 
-                if (admin.Password != adm.Password)
-                {
-                    adm.Password = Crypto.Hash(password, "MD5");
-                    adm.Phone = adm.Phone;
-                    adm.Job = adm.Job;
-                    adm.FullName = adm.FullName;
-                    adm.Email = adm.Email;
-                    adm.Auth = adm.Auth;
+                        adm.Password = Crypto.Hash(password, "MD5");
+                        adm.Phone = adm.Phone;
+                        adm.Job = adm.Job;
+                        adm.FullName = adm.FullName;
+                        adm.Email = adm.Email;
+                        adm.Auth = adm.Auth;
 
                     db.SaveChanges();
-                    return RedirectToAction("Index", "AdminProfil/");
-                }
-                else
-                {
-                    ViewBag.Danger = "Yeni parolanız eski parolayla aynı olamaz!";
-                }   
+                    return RedirectToAction("Index", "AdminProfil/"); 
             }
 
             return View(admin);
